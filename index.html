@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#20581;&#24247;&#25945;&#32946;&#28040;&#28040;&#27138;</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="loginView" class="screen screen--active">
+        <div class="brand">
+          <span class="brand__mark">+</span>
+          <div>
+            <h1>&#20581;&#24247;&#25945;&#32946;&#28040;&#28040;&#27138;</h1>
+            <p>&#21311;&#21517;&#21443;&#33287;&#65292;&#27599;&#19968;&#38364;&#23436;&#25104;&#24460;&#35264;&#30475;&#34907;&#25945;&#24433;&#29255;&#65292;&#20877;&#36914;&#20837;&#19979;&#19968;&#38364;&#12290;</p>
+          </div>
+        </div>
+
+        <form id="loginForm" class="panel">
+          <label for="username">&#21311;&#21517;&#20351;&#29992;&#32773;&#21517;&#31281;</label>
+          <div class="inline">
+            <input id="username" name="username" autocomplete="off" maxlength="18" placeholder="learner07" required />
+            <button type="submit">&#38283;&#22987;</button>
+          </div>
+          <p id="loginError" class="error" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="gameView" class="screen">
+        <header class="topbar">
+          <div>
+            <strong id="playerName">--</strong>
+            <span id="levelLabel">&#31532; 1 &#38364;</span>
+          </div>
+          <div class="stats">
+            <span>&#20998;&#25976; <strong id="score">0</strong></span>
+            <span>&#26178;&#38291; <strong id="timer">60</strong>s</span>
+            <span>&#30446;&#27161; <strong id="target">0</strong></span>
+          </div>
+        </header>
+
+        <section class="playfield">
+          <aside class="brief">
+            <h2 id="levelTitle">&#39154;&#39135;&#22343;&#34913;</h2>
+            <p id="levelGoal">&#37197;&#23565;&#30456;&#21516;&#22294;&#31034;&#20358;&#32047;&#31309;&#36914;&#24230;&#12290;</p>
+            <div class="progress">
+              <span id="progressText">0 / 0</span>
+              <div><i id="progressBar"></i></div>
+            </div>
+            <p id="extendHint" class="hint">&#26178;&#38291;&#21040;&#26178;&#21487;&#25187; 5 &#20998;&#31572;&#38988;&#65292;&#24310;&#38263; 10 &#31186;&#65307;&#27599;&#38364;&#38480;&#19968;&#27425;&#12290;</p>
+          </aside>
+
+          <div id="board" class="board" aria-label="match board"></div>
+        </section>
+      </section>
+
+      <section id="videoView" class="screen">
+        <div class="video-stage">
+          <div class="video-frame">
+            <div class="video-poster">
+              <span>&#34907;&#25945;&#24433;&#29255;</span>
+              <strong id="videoTopic">&#20581;&#24247;&#30693;&#35672;</strong>
+            </div>
+            <div class="video-progress"><i id="videoBar"></i></div>
+          </div>
+          <h2>&#35264;&#30475;&#34907;&#25945;&#24433;&#29255;&#24460;&#36914;&#20837;&#19979;&#19968;&#38364;</h2>
+          <p id="videoCountdown">&#21197;&#39192; 30 &#31186;</p>
+          <button id="nextLevelBtn" disabled>&#36914;&#20837;&#19979;&#19968;&#38364;</button>
+        </div>
+      </section>
+
+      <section id="quizView" class="screen">
+        <div class="panel panel--quiz">
+          <h2>&#26178;&#38291;&#21040;&#65292;&#26159;&#21542;&#31572;&#38988;&#24310;&#38263;&#65311;</h2>
+          <p>&#25187; 5 &#20998;&#22238;&#31572;&#36984;&#25799;&#38988;&#65292;&#31572;&#23565;&#21363;&#21487;&#24310;&#38263; 10 &#31186;&#12290;</p>
+          <fieldset id="quizBox">
+            <legend id="quizQuestion">&#38988;&#30446;</legend>
+            <div id="quizOptions" class="options"></div>
+          </fieldset>
+          <p id="quizFeedback" class="error" aria-live="polite"></p>
+          <div class="actions">
+            <button id="submitQuizBtn">&#36865;&#20986;&#31572;&#26696;</button>
+            <button id="finishFromQuizBtn" class="secondary">&#32080;&#26463;&#36938;&#25138;</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="leaderboardView" class="screen">
+        <div class="leaderboard">
+          <header>
+            <div>
+              <h2>&#25490;&#34892;&#27036;</h2>
+              <p>&#21482;&#39023;&#31034;&#21069; 10 &#21517;&#65292;&#20197;&#21450;&#20320;&#30340;&#26368;&#32066;&#21517;&#27425;&#12290;</p>
+            </div>
+            <button id="restartBtn">&#37325;&#26032;&#38283;&#22987;</button>
+          </header>
+          <ol id="topTen"></ol>
+          <div id="myRank" class="my-rank"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="tileTemplate">
+      <button class="tile" type="button"></button>
+    </template>
+
+    <script src="game.js"></script>
+  </body>
+</html>
